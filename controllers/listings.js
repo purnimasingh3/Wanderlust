@@ -20,7 +20,7 @@ module.exports.index = async (req, res) => {
 
     } catch (err) {
         console.log(err);
-        res.send("Error in search");
+        return res.send("Error in search");
     }
 };
 
@@ -65,7 +65,7 @@ module.exports.renderEditForm =  async(req,res)=>{
     const listing = await Listing.findById(id);
      if(!listing){
     req.flash("error","Listing you requested for does not exist!");
-    res.redirect("/listings");
+    return res.redirect("/listings");
      }
      let originalImageUrl = listing.image.url;
      originalImageUrl = originalImageUrl.replace("/upload", "/upload/w_50");
