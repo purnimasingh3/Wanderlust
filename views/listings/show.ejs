@@ -1,4 +1,77 @@
 <% layout("/layouts/boilerplate") %>
+<style>
+   /* SHOW PAGE BASE */
+.show-card {
+  margin: auto;
+  float: none;
+}
+
+/* IMAGE */
+.show-img {
+  height: 18rem;
+  object-fit: cover;
+}
+
+/* BUTTON GROUP */
+.btns {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* REVIEW CARDS */
+.review-card {
+  width: 100%;
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+
+  /* REMOVE OFFSETS */
+  .offset-3,
+  .offset-5 {
+    margin-left: 0 !important;
+  }
+
+  /* FULL WIDTH COLUMNS */
+  .col-6,
+  .col-8,
+  .col-5 {
+    width: 100% !important;
+  }
+
+  /* TITLE */
+  h3 {
+    text-align: center;
+    font-size: 1.4rem;
+  }
+
+  /* SHOW CARD */
+  .show-card {
+    width: 100%;
+  }
+
+  /* BUTTONS STACK */
+  .btns {
+    flex-direction: column;
+  }
+
+  .edit-btn,
+  .btns button {
+    width: 100%;
+  }
+
+  /* REVIEWS */
+  .card.col-5 {
+    margin-left: 0 !important;
+  }
+  @media (max-width: 768px) {
+  .review-card {
+    width: 100% !important;
+  }
+}
+}
+</style>
  <div class="row mt-3">
     <div class="col-8 offset-3 ">
          <h3><%= listing.title %></h3>
@@ -87,7 +160,7 @@
       <h4>All Reviews</h4>
       <div class="row">
        <% for (review of listing.reviews){ %>
-         <div class="card col-5 ms-3 mb-3">
+         <div class="card col-5 ms-3 mb-3 review-card">
             <div class="card-body">
                <h5 class="card-title">@<%= review.author.username %></h5>
                  <p class="starability-result card-text" data-rating="<%= review.rating %>">

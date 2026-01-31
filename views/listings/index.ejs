@@ -2,36 +2,125 @@
 <body>
     <h3>All Listings</h3>
     <style>
-      #filters{
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-      }
-      .filter{
-        text-align: center;
-        margin-right: 2rem;
-        margin-top: 2rem;
-        opacity: 0.7;
-      }
-      .filter:hover{
-        opacity: 1;
-        cursor: pointer;
-      }
-      .filter p{
-        font-size:0.8rem;
-      }
-      .tax-info{
-        display: none;
-      }
-      .tax-toggle{
-        border: 1px solid black;
-        border-radius: 1rem;
-        height: 3.5rem;
-        padding: 1rem;
-        margin-left: 5rem;
-        display: flex;
-        align-items: center;
-      }
+  #filters {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  overflow-x: auto;        /* mobile scroll */
+  scrollbar-width: none;  /* firefox */
+}
+
+#filters::-webkit-scrollbar {
+  display: none;           /* chrome */
+}
+
+.filter {
+  min-width: 70px;
+  text-align: center;
+  opacity: 0.7;
+  flex-shrink: 0;          /* important for scroll */
+}
+
+.filter:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.filter i {
+  font-size: 1.2rem;
+}
+
+.filter p {
+  font-size: 0.75rem;
+  margin-top: 0.3rem;
+}
+
+/* TAX TOGGLE */
+.tax-toggle {
+  flex-shrink: 0;
+  border: 1px solid #ccc;
+  border-radius: 1rem;
+  padding: 0.6rem 1rem;
+  display: flex;
+  align-items: center;
+  margin-left: auto;   /* push to right */
+}
+
+/* CARD FIX FOR MOBILE */
+.listing-card img {
+  height: 16rem !important;
+  object-fit: cover;
+}
+
+/* MOBILE ONLY */
+@media (max-width: 600px) {
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  .tax-toggle {
+    margin-left: 0;
+  }
+}
+/* LISTING GRID FIX */
+.row {
+  margin: 0;
+}
+
+/* CARD BASE */
+.listing-card {
+  border-radius: 1rem;
+  overflow: hidden;
+  border: none;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* IMAGE FIX */
+.listing-card img {
+  width: 100%;
+  height: 15rem;
+  object-fit: cover;
+}
+
+/* TEXT AREA */
+.listing-card .card-body {
+  padding: 0.8rem 0.9rem;
+}
+
+.listing-card .card-text {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* REMOVE BLUE LINK STYLE */
+.listing-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* MOBILE ONLY */
+@media (max-width: 600px) {
+  .row-cols-sm-1 > * {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .listing-card {
+    border-radius: 0.8rem;
+  }
+
+  .listing-card img {
+    height: 14rem;
+  }
+
+  .listing-card .card-text b {
+    font-size: 0.95rem;
+  }
+}
+      
+           
 
     </style>
     <div id="filters">
